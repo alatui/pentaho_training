@@ -1,0 +1,52 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AndaleMono;}
+{\colortbl;\red255\green255\blue255;\red47\green255\blue18;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Alterar 
+\f1 \cf2 \cb0 \CocoaLigature0 biserver-ce-6.01.0/tomcat/webapps/pentaho/index.jsp
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+Insertar o seguinte fonte :\
+\
+\
+<%@ taglib prefix='c' uri='http://java.sun.com/jstl/core'%>\
+<%@ page language="java"\
+    import="\
+            org.pentaho.platform.engine.core.system.PentahoSystem,\
+            org.pentaho.platform.api.engine.IPentahoSession,\
+                              org.pentaho.platform.api.engine.IPluginManager,\
+            java.util.List,\
+            org.pentaho.platform.engine.core.system.PentahoSessionHolder,\
+            java.util.ResourceBundle,\
+            org.owasp.esapi.ESAPI,\
+            java.net.URLClassLoader, java.net.URL"\
+%>\
+<%@page import="org.pentaho.platform.api.engine.IPentahoSession" %>\
+<%@page import="org.pentaho.platform.web.http.PentahoHttpSessionHelper" %>\
+<%@page import="org.pentaho.platform.api.engine.security.userroledao.IPentahoRole" %>\
+<%@page import="org.pentaho.platform.api.engine.security.userroledao.IPentahoUser" %>\
+<%@page import="org.pentaho.platform.api.engine.security.userroledao.IUserRoleDao" %>\
+<%@page import="java.util.ArrayList" %>\
+<%\
+IPentahoSession userSession = PentahoSessionHolder.getSession();\
+String username = userSession.getName().toString();\
+IUserRoleDao userRoleDao = PentahoSystem.get( IUserRoleDao.class, "userRoleDaoProxy", PentahoSessionHolder.getSession());\
+List<IPentahoRole> userRoles = userRoleDao.getUserRoles( null, username );\
+List<String> listRoles = new ArrayList<String>();\
+for ( IPentahoRole role : userRoles ) \{\
+      listRoles.add(role.getName());\
+\}\
+if(listRoles.contains("Administrator")) \{\
+        String url = "/pentaho/Home" ;\
+        response.setStatus(response.SC_MOVED_TEMPORARILY);\
+        response.setHeader("Location", url);\
+\} else \{\
+        String url = "/pentaho/content/saiku-ui/index.html?biplugin5=true" ;\
+        String url_new = "/pentaho/plugin/Agrifatto/api/saiku" ;\
+        response.setStatus(response.SC_MOVED_TEMPORARILY);\
+        response.setHeader("Location", url);\
+\}\
+%>\
+}

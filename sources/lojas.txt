@@ -1,0 +1,6 @@
+1,Matriz – Varzea Grande,Varzea Grande,MT
+2,Filial – TCE-MT,Cuiabá,MT
+3,Filial – TJ,Cuiabá,MT
+4,Filial – USA,Nova York,NY
+5,Filial – Brasília,Brasília,DF
+

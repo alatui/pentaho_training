@@ -1,0 +1,27 @@
+{
+    "produtos": [{
+        "id": "1",
+        "nome": "Pão com Sal"
+    }, {
+        "id": "2",
+        "nome": "Rosca com crème"
+    }, {
+        "id": "3",
+        "nome": "Pão de Forma"
+    }, {
+        "id": "4",
+        "nome": "Rosca Tradicional"
+    }, {
+        "id": "5",
+        "nome": "Pão Francês"
+    }, {
+        "id": "6",
+        "nome": "Rosca Queimada"
+    }, {
+        "id": "7",
+        "nome": "Pão Mandi"
+    }, {
+        "id": "8",
+        "nome": "Bisnaga"
+    }]
+}
